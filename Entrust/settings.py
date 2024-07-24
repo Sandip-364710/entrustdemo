@@ -63,15 +63,27 @@ WSGI_APPLICATION = 'Entrust.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'entrust',  # Name of your MySQL database
+#         'USER': 'skpatel',  # Username for MySQL database
+#         'PASSWORD': '364710',  # Password for MySQL database
+#         'HOST': 'localhost',  # Host where MySQL server is running, change if needed
+#         'PORT': '3306',  # Port MySQL server is listening on, change if needed
+#     } 
+# }
+import dj_database_url
+from os import getenv
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Load environment variables from .env file
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'entrust',  # Name of your MySQL database
-        'USER': 'skpatel',  # Username for MySQL database
-        'PASSWORD': '364710',  # Password for MySQL database
-        'HOST': 'localhost',  # Host where MySQL server is running, change if needed
-        'PORT': '3306',  # Port MySQL server is listening on, change if needed
-    }
+    'default': dj_database_url.config(default=getenv('DATABASE_URL')),
 }
 
 # Password validation
@@ -109,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 import os 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,"employe", "static")]
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
