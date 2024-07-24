@@ -1,0 +1,49 @@
+{% load static %}
+{% include "header.html" %} 
+<title>Leave List</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<link rel="stylesheet" href="{% static '\css\leave_list.css' %}">
+
+<body>
+   <table id="leaveTable" class="display">
+      <thead>
+         <tr>
+            <th>Id</th>      
+            <th>Employee</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th  style="text-align: center; margin-left: 20px;">status</th>
+            <th style="text-align: center;">Reason</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for leave in leaves %}
+         <tr>
+            <td style="text-align: center;">{{ leave.id }}</td>
+            <td style="text-align: center;">
+               <a href="{% url 'leave_detail' leave.pk %}">{{ leave.employ.name }}</a>
+            </td>
+            <td style="font-size: 12px; text-align: center;">{{ leave.start_date }}</td>
+            <td style="text-align: center;">{{ leave.start_time }}</td>
+            <td style="font-size: 12px; text-align: center;">{{ leave.end_date }}</td>
+            <td style="text-align: center;" >{{ leave.end_time }}</td>
+            <td class="{% if leave.status == 'Approved' %} approved {% elif leave.status == 'Rejected' %} rejected   {% else %} pending {% endif %} " style="text-align: center;">
+               {{ leave.status }}
+            </td>
+            <td style="text-align: center; font-size: 12px;">{{ leave.reason }}</td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+   <script>
+      $(document).ready(function() {
+          $('#leaveTable').DataTable();
+      });
+   </script>
+</body>
+</html>

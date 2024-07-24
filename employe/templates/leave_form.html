@@ -1,0 +1,50 @@
+{% load static %}
+{% include "header.html" %}
+    <title>Apply for Leave</title>
+    <link rel="stylesheet" href="{% static '\css\leave_form.css' %}">
+</head>
+<body>
+    <div class="leave_form">
+    <form method="post">
+        <div class="header">
+            <!-- Logo image on the right side -->
+            <img src="\static\image\Entrust Logo Plain.jpg" alt="Logo" class="logo">
+        </div>
+        {% csrf_token %}
+        <div class="split-inputs">
+            <div class="left-input">
+                <label for="employee_name">Employee:</label>
+                {{ form.employ }}
+            </div>
+            <div class="right-input">
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" required>
+            </div>
+        </div>
+        <div class="split-inputs">
+            <div class="left-input">
+                <label for="start_time">Start Time:</label>
+                <input type="time" id="start_time" name="start_time" required>
+            </div>
+            <div class="right-input">
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" required>
+            </div>
+        </div>
+        <div class="split-inputs">
+            <div class="left-input">
+                <label for="end_time">End Time:</label>
+                <input type="time" id="end_time" name="end_time" required>
+            </div>
+            <div class="right-input">
+                <label for="reason">Reason:</label>
+                <input type="text" id="reason" name="reason" required>
+            </div>
+        </div>
+        <div class="leave">
+        <button type="submit">Apply</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

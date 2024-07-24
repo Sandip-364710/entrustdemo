@@ -1,0 +1,49 @@
+{% load static %}
+{% include "header.html" %}
+    <title>Task List</title>
+    <link rel="stylesheet" href="{% static '\css\list.css' %}">
+    <style>
+        body{
+             background-image: url('/static/image/807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg');
+        }
+    </style>
+</head>
+<body>
+    <!-- Container div for the list of tasks -->
+    {% comment %} <h2>Tasks</h2> {% endcomment %}
+   
+    <div class="task-container">
+        <div class="header">
+            <!-- Logo image on the right side -->
+            <a href="{% url 'home' %}"><img src="\static\image\Entrust Logo Plain.jpg" alt="Logo" ></a>
+        </div>
+        <table class="task-table">
+            <tr>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+            </tr>
+            <!-- Iterate through tasks -->
+            {% for task in tasks %}
+            <tr>
+                <!-- Display due date, task name, and priority in respective columns -->
+                
+                <td><a href="{% url 'task_detail' task.pk %}">{{ task.task }}</a></td>
+                <td>{{ task.due_date }}</td>
+                <td class="{% if task.priority == 'High' %}high-priority{% elif task.priority == 'Medium' %}medium-priority{% else %}low-priority{% endif %}">{{ task.priority }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!-- Check if the user is authenticated -->
+        {% if user.is_authenticated %}
+        <form method="get" action="{% url 'task_create' %}">
+            <!-- Add Task button -->
+            <button type="submit" class="add-task-button">Add Task</button>
+        </form>
+        {% else %}
+        <!-- If user is not authenticated, display login button -->
+        <a href="{% url 'login' %}" class="add-task-button" style="width: 20%; color: wheat;">Login</a>
+        {% endif %}
+    </div>
+</body>
+</html>

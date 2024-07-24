@@ -1,0 +1,46 @@
+{% load static %}
+{% include "header.html" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static '\css\leave_detail.css' %}">
+</head>
+<body>
+<div class="card">
+    <div class="header">
+        <img src="\static\image\Entrust Logo Plain.jpg" >
+    </div>
+   
+    <div class="men">
+        <img src="{{ leave.employ.image.url }}" alt="{{ employ.name }}" class="men">
+    </div>
+    <div class="title">{{ leave.employ.developer }}</div>
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td>{{ leave.employ.name }}</td>
+        </tr>
+        <tr>
+            <th>Start Date:</th>
+            <td>{{ leave.start_date }}</td>
+        </tr>
+        <tr>
+            <th>Start Time:</th>
+            <td>{{ leave.start_time }}</td>
+        </tr>
+        <tr>
+            <th>End Date:</th>
+            <td>{{ leave.end_date }}</td>
+        </tr>
+        <tr>
+            <th>End Time:</th>
+            <td>{{ leave.end_time }}</td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td class="{% if leave.status == 'Approved' %} approved {% elif leave.status == 'Rejected' %} rejected   {% else %} pending {% endif %}">
+                {{ leave.status }}
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

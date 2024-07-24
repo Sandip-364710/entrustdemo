@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="\static\css\employe_login1.css">
+        <body>
+             <a class="back-link" href="{% url 'home' %}">Home</a> 
+    <div class="login-container">
+        {% if messages %}
+        <script>
+            {% for message in messages %}
+            Toastify({
+              text: "{{ message }}" ,
+              className: "info",
+              position: "center",
+              style: {
+                background: "linear-gradient(to left, #00b09b, #96c93d)",
+              }
+            }).showToast();
+            {% endfor %}
+        </script>
+        {% endif %}
+        <div class="wrapper">
+    <div class="logo">
+       <img src="\static\image\Entrust Logo Plain.jpg" alt="">
+    </div>
+    <div style="color: rgb(76, 10, 231); margin-left: 20px;" class="text-center mt-4 name">
+        Entrust
+    </div>
+    <form class="p-3 mt-3" method="post">
+	 {% csrf_token %}
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+             <input type="text" id="username" name="username" placeholder="Name" required>
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+              <input type="password" id="password" name="password" placeholder="password" required>  
+        </div>
+        <button type="submit" class="btn mt-3">Login</button>
+    </form>
+    <div class="text-center fs-6">
+        Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+</div>
+</html>
+</body>

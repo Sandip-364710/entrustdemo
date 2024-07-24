@@ -1,0 +1,98 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Detail</title>
+    <link rel="stylesheet" href="{% static '/css/task_detail.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+    </style>
+</head>
+<body>
+
+    <a style="text-decoration: none;" href="{% url 'task_list' %}"><h3 style="text-decoration: none; height: 10px; font-size: 70px; color: rgb(13, 177, 199);  margin-bottom: 600px; margin-left: 100px;">&#8678</h3></a>   
+    <div class="task-details">
+        <div class="header">
+            <!-- Logo image on the right side -->
+            <img src="\static\image\Entrust Logo Plain.jpg" alt="Logo" class="logo">
+        </div>
+        <h1>Task Detail</h1>
+        <table>
+            <tr>
+                <th>Task</th>
+                <td>{{ task.task }}</td>
+            </tr>
+            <tr>
+                <th>Due Date</th>
+                <td>{{ task.due_date }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td class="{% if task.priority == 'High' %}high-priority{% elif task.priority == 'Medium' %}medium-priority{% else %}low-priority{% endif %}">{{ task.priority }}</td>
+            </tr>
+            <tr>
+                <th>Employee</th>
+                <td>{{ task.employ.all }}</td>
+            </tr>
+        </table>
+        
+        <div id="button">
+        <a href="{% url 'task_update' task.pk %}" class="update-button">Update</a>
+        <form id="deleteForm" action="{% url 'task_delete' task.pk %}" method="post">
+            {% csrf_token %}
+        <button id="deleteButton" type="submit"   class="delete-button">Delete</a>
+        </form>
+       
+    </div>
+</div>
+
+    <script>
+        document.getElementById("deleteForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            Swal.fire({
+                title: 'Are you sure you want to delete the Task?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'red',
+                cancelButtonColor: 'rgb(45, 45, 119)',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel' // Add cancel button text
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the form using AJAX
+                    fetch(document.getElementById("deleteForm").action, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Task deleted successfully.',
+                                icon: 'success'
+                            }).then(() => {
+                                window.location.href = "{% url 'task_list' %}";
+                            });
+                        } else {
+                            throw new Error('Something went wrong!');
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: error.message,
+                            icon: 'error'
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

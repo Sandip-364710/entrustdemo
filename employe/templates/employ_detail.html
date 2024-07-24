@@ -1,0 +1,88 @@
+{% load static %}
+{% include "header.html" %}
+<link rel="stylesheet" href="{% static '\css\employe_detail.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<div class="card">
+    
+    <div class="header">
+        <img src="\static\image\Entrust Logo Plain.jpg" alt="logo">
+    </div>
+    <h1 style="margin-top: 20px; color: rgb(45, 45, 119);">Entrust</h1>
+    <div class="card-img">
+        <img src="{{ employ.image.url }}" alt="{{ employ.name }}">
+    </div>
+    <p class="title"> {{ employ.developer }} </p>
+    <table id="t01">
+        <tr>
+            <th>Name:-</th>
+            <td>{{ employ.name }}</td>
+        </tr>
+        <tr>
+            <th>id:-</th>
+            <td>{{ employ.id }}</td>
+        </tr>
+        <tr>
+            <th>Phone:-</th>
+            <td>{{ employ.phone }}</td>
+        </tr>
+    </table>
+    <div class="button">
+        <button class="updateButton" style="font-size: 30px;"><a href="{% url 'employ_update' employ.pk %}">Update</a></button>
+        <form id="deleteForm" action="{% url 'employ_delete' employ.pk %}" method="post">
+            {% csrf_token %}
+            <button id="deleteButton" type="submit" style="font-size: 30px;">Delete</button>
+        </form>
+    </div>
+</div>
+<!-- Message print pop -->
+<script>
+    document.getElementById("deleteForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        
+        Swal.fire({
+            title: 'Are you sure you want to delete the employee?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'red',
+            cancelButtonColor: 'rgb(45, 45, 119)',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel' // Add cancel button text
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form using AJAX
+                fetch(document.getElementById("deleteForm").action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Employee deleted successfully.',
+                            icon: 'success'
+                        }).then(() => {
+                            window.location.href = "{% url 'employ_list' %}";
+                        });
+                    } else {
+                        throw new Error('Something went wrong!');
+                    }
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message,
+                        icon: 'error'
+                    });
+                });
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>

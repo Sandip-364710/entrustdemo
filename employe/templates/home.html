@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {% comment %} title in add logo {% endcomment %}
+   <link rel="shortcut icon" href="\static\image\Entrust Logo Plain.jpg" type="">
+   <title>Entrust</title>
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+   <link rel="stylesheet" href="{% static '\css\home.css' %}">
+</head>
+<body>
+   <nav>
+      <!-- Logo on the left side -->
+      <div class="logo">
+         <img src="\static\image\Entrust Logo Plain.jpg" alt="Logo">
+         <h1>Entrust</h1>
+      </div>
+      {% if messages %}
+      <script>
+          {% for message in messages %}
+          Toastify({
+            text: "{{ message }}",
+            gravity: "bottom",
+            position: 'right',
+            backgroundColor: "linear-gradient(to right, red, orange)",
+            stopOnFocus: true, 
+          }).showToast();
+          
+          {% endfor %}           
+      </script>
+    {% endif %} 
+      <!-- Navigation links and logout button on the right side -->
+      <ul>
+         <li class="{% if request.path == '/' %} active {% endif %}">
+             <a href="{% url 'home' %}">Home</a>
+         </li> 
+         {% if user.is_authenticated %}
+         <li class="{% if request.path == '/employ/' %} active {% endif %}">
+             <a href="{% url 'employ_list' %}">Employees</a>
+             {% else %} 
+             <a href="{% url 'login' %}"></a>
+         </li> 
+         {% endif %}
+         {% if user.is_authenticated %} 
+         <li class="{% if request.path == '/tasks/' %} active {% endif %}">
+             <a href="{% url 'task_list' %}">Tasks</a>
+             {% else %} 
+             <a href="{% url 'login' %}"></a>
+         </li> 
+         {% endif %}
+         {% if user.is_authenticated %} 
+         <li class="{% if request.path == '/leaves/' %} active {% endif %}">
+             <a href="{% url 'leave-list' %}">Leave</a>
+         {% else %} 
+             <a href="{% url 'login' %}"></a>
+         </li> 
+         {% endif %}
+
+         {% if user.is_authenticated %} 
+         <li class="{% if request.path == '/leave_form/' %} active {% endif %}">
+             <a href="{% url 'leave-apply' %}">Leave-Apply</a>
+             {% else %} 
+             <a href="{% url 'login' %}"></a>
+         </li> 
+         {% endif %}
+      {% if user.is_authenticated %} 
+      <li>
+         <form class="text-danger-emphasis" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="text-danger-emphasis bg-primary-subtle border border-primary-subtle" type="submit">Logout</button>
+         </form>
+      </li>
+      {% else %} 
+      <li>
+         <a href="{% url 'login' %}">Login</a>
+      </li>
+      {% endif %} 
+   </ul>
+   </nav>
+   <section class="banner">
+      <img src="\static\image\807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg" alt="Banner Image">
+   </section>
+   <!-- Your content goes here -->
+</body>
+</html>
