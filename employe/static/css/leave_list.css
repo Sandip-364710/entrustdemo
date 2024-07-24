@@ -1,0 +1,39 @@
+body{
+    background-size: cover;
+
+  
+  
+}
+#leaveTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+#leaveTable th,
+#leaveTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  
+}
+img{
+   max-width: 50px;
+   border-radius: 2px;
+}
+.approved {
+    color: white;
+    background-color: rgb(105, 223, 105);
+}
+
+.rejected {
+    color: white;
+    background-color: rgb(236, 127, 127);
+}
+
+.pending {
+    color: black;
+    background-color: bisque;
+}
+th td{
+      text-align: center;
+}

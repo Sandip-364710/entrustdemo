@@ -1,0 +1,70 @@
+/* Basic styles for demonstration */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; 
+ }
+ nav {
+   background-color: white;
+    color: #f15d5d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 30px;
+ }
+ .logo {
+    display: flex; 
+    align-items: center; /* Added */
+ }
+ .logo img {
+    width: 60px; /* Adjust according to your logo size */
+    border-radius: 10px;
+    margin-right: 10px; /* Added */
+ }
+ h1 {
+    margin: 0; /* Added to reset default margin */
+    font-size: 24px; /* Adjust font size as needed */
+    color: #00457E
+ }
+ ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Added */
+ }
+ li {
+    margin-left: 30px;
+ }
+ ul li a {
+    text-decoration: none;
+    color: rgb(63, 15, 92);
+    margin-left: 20px;
+    font-size: 20px;
+ }
+.text-danger-emphasis button {
+    background-color: transparent;
+    border: none;
+   
+    color: rgb(63, 15, 92);
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 20px;
+ }
+ a:hover{
+      text-decoration: underline;
+       
+ }
+
+ .active a {
+   background-color: #85b0f6; /* Background color for active link */
+   border-radius: 5px; /* Rounded corners for active link */
+   padding: 5px 10px; /* Adjust padding for active link */
+   color: white;
+}
+
+.active :hover{
+ background-color: rgb(215, 200, 230);
+}

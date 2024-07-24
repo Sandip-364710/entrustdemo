@@ -1,0 +1,130 @@
+body{
+    background-size: cover;
+    background-image: url('/static/image/807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg');
+}
+.card {
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+ max-width: 250px;
+ height: 410px;
+ margin: auto;
+ margin-top: 50px;
+ text-align: center;
+ font-family: arial;
+ margin-top: 10px;
+ background-color:  rgba(219, 188, 161, 0.927);
+ border-radius: 2px;
+ transition: box-shadow 0.4s ease;
+   
+    
+}
+.card:hover {
+    box-shadow: 3px 3px 3px 10px rgba(227, 212, 198, 0.927); /* Add box shadow on hover */
+    
+    } 
+    
+ 
+
+
+
+
+.title {
+ color: rgb(36, 118, 251);
+ font-size: 18px;
+ background-color: aliceblue;
+ max-width: 300px;
+ 
+}
+
+
+ .card-img img {
+ height: 100px;
+ width: 90px;
+ margin-top: 5px;
+ border-radius: 5px; 
+ border: 1px solid rgb(238, 208, 194);
+ background-color: rgb(223, 134, 134);
+       
+}
+table {
+ width: 60%;
+ margin-left: 50px;
+
+
+}
+
+table, th, td {
+ /* border: 1px solid rgba(255, 255, 255, 0.8); */
+ border-collapse: collapse;
+}
+
+th, td {
+ padding: 10px;
+ text-align: left;
+}
+.header{
+   display: flex;
+}
+.header img{
+        max-width: 40px;
+        height: 50px;
+        margin-top: 10px;
+        margin-right: 140px;
+        margin-left: 100px;
+}
+
+.button {
+   
+     margin-top: 20px;
+        display: flex; /* Use flexbox to align buttons horizontally */
+        justify-content: space-between; /* Ensure equal spacing between buttons */
+
+}
+.updateButton {
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: blue;
+    margin-right: 10px;
+    font-size: 10px;
+}
+.card a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.high-priority {
+    background-color: #71f969; /* Red */
+}
+
+.medium-priority {
+    background-color: #e9d522; /* Yellow */
+}
+
+.low-priority {
+    background-color: #ef6262; /* Green */
+}
+
+
+/* Adjust margin or padding as needed */
+
+
+#deleteButton {
+display: inline-block; /* Display buttons inline */
+/* Add right margin for spacing */
+padding: 10px; /* Add padding for spacing */
+font-size: 10px;
+text-decoration: none;
+color: #fff;
+padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: red;
+    margin-right: 20px;
+        /* Add padding for spacing */
+}

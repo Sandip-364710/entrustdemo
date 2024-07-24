@@ -1,0 +1,107 @@
+body {
+    /* background-image: url("/static/image/807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg"); */
+    background-size: cover;
+    background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+    margin: 0; /* Remove default margin to avoid space around the body */
+    padding: 0; /* Remove default padding */
+}
+
+h2 {
+    font-size: 30px;
+    width: 20%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: burlywood;
+    background-color: cadetblue;
+    border-radius: 10px;
+    padding: 10px; /* Add padding for better visibility */
+    margin-top: 20px; /* Add margin to center the header vertically */
+}
+
+/* Style for the container div */
+.task-container {
+    margin-top: 20px; /* Add margin to center the container vertically */
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Add background color with opacity */
+    max-width: 70%; /* Limit maximum width of the container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style for the table */
+.task-table {
+    width: 100%; /* Make the table fill the container */
+    border-collapse: collapse;
+    background-color: transparent; /* Set background color of table to transparent */
+}
+
+.task-table th, .task-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.task-table th {
+    background-color: #f2f2f2;
+}
+
+.task-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.task-table tr:hover {
+    background-color: #ddd;
+}
+
+.task-table a {
+    text-decoration: none;
+    color: #333;
+}
+
+.task-table a:hover {
+    color: #007bff;
+}
+
+/* Style for the "Add Task" button */
+.add-task-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    margin-top: 20px; /* Add margin to separate button from table */
+    display: block; /* Make the button a block element for proper alignment */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-task-button:hover {
+    background-color: #0056b3;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60px;
+    margin-bottom: 10px;
+    margin-left: 450px;
+    border-radius: 30px;
+}
+
+
+.high-priority {
+    background-color: #71f969; /* Red */
+}
+
+.medium-priority {
+    background-color: #e9d522; /* Yellow */
+}
+
+.low-priority {
+    background-color: #ef6262; /* Green */
+}

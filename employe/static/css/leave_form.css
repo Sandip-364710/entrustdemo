@@ -1,0 +1,72 @@
+body {
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: #ddd6d6;
+    background-image: url('/static/image/807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg');
+}
+.header img {
+max-width: 50px;
+margin-left: 200px;
+background-color: #ccc;
+border-radius: 10px;
+
+}
+
+.leave_form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.4s ease;
+    margin-top: 60px;
+
+}
+.leave_form:hover {
+    box-shadow: 5px 5px 5px 10px rgba(226, 217, 209, 0.927);
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Adjust layout */
+.split-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+.left-input {
+    flex: 1;
+    margin-right: 10px;
+}
+.right-input {
+    flex: 1;
+    margin-left: 10px;
+}
+.leave button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 200px;
+}
+.leave button:hover {
+    background-color: #0056b3;
+}

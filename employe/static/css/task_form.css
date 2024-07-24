@@ -1,0 +1,78 @@
+body{
+    background-image: url('/static/image/807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg');
+    background-size: cover;
+}
+.form-container {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.4s ease;
+    border-radius: 4px;
+}
+.form-container:hover {
+            box-shadow: 5px 5px 5px 10px rgba(226, 217, 209, 0.927);
+        }
+/* Style for header */
+
+.header img{
+max-width: 50px; /* Adjust as needed */
+margin-left: 255px;
+background-color: #e5dddd;
+border-radius: 30px;
+}
+
+
+/* Style for form title */
+h3 {
+    text-align: center;
+}
+
+/* Style for labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style for inputs */
+input[type="file"],
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for split inputs */
+.split-inputs {
+    display: flex;
+}
+
+.split-inputs .left-input,
+.split-inputs .right-input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Style for buttons */
+button {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 150px;
+}
+button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,86 @@
+
+body {
+    background-size:cover;
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+   background-image: url('/static/image/807bdc_76988d083c9f4658a7064389c3d13532~mv2_d_9833_4800_s_4_2.jpg');
+}
+
+.card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   max-width: 400px;
+   margin: auto;
+   text-align: left;
+   font-family: arial;
+   margin-top: 10px;
+   background-color: rgba(255, 255, 255, 0.519);
+   border-radius: 5px;
+   padding: 20px;
+   transition: background-color 0.01s ease, border-color 0.01s ease;/* Smooth transition for background color change */
+}
+
+.card:hover {
+   box-shadow: 5px 5px 5px 10px rgba(255, 255, 255, 0.519);  /* Lighter background color on hover */
+}
+
+.title {
+color: grey;
+font-size: 18px;
+background-color: aliceblue;
+max-width: 300px;
+margin-left: 50px;
+text-align: center;
+}
+
+.header img {
+   max-width: 70px;
+   height: 50px;
+   margin-top: 5px;
+   margin-right: 20px;
+   border-radius: 50%;
+   margin-bottom: 20px;
+   margin-left: 160px;
+   background-color: antiquewhite;
+}
+
+
+
+table {
+   width: 100%;
+}
+
+table, th, td {
+   border-collapse: collapse;
+}
+
+th, td {
+   padding: 10px;
+   border-bottom: 1px solid ;
+}
+
+
+.men img{
+   height: 100px;
+width: 90px;
+margin-top: 3px;
+border-radius: 5px; 
+background-color: rgb(53, 145, 226);  
+border: 2px solid rgb(53, 145, 226); 
+margin-left: 150px;  
+
+}
+.approved {
+   color: white;
+   background-color: green;
+}
+
+.rejected {
+   color: white;
+   background-color: red;
+}
+
+.pending {
+   color: black;
+   background-color: bisque;
+}

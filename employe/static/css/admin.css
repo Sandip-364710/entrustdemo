@@ -1,0 +1,15 @@
+/* admin.css */
+/* Yellow color for Pending */
+.inline-group .field-status span.pending {
+    background-color: yellow;
+}
+
+/* Green color for Approved */
+.inline-group .field-status span.approved {
+    background-color: green;
+}
+
+/* Red color for Rejected */
+.inline-group .field-status span.rejected {
+    background-color: red;
+}
